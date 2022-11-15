@@ -1,0 +1,81 @@
+{
+  "compilerOptions": {
+    "plugins": [
+      {
+        "name": "typescript-styled-plugin"
+      }
+    ],
+    "target": "es6",
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
+    "baseUrl": "./",
+    "paths": {
+      "@api/*": [
+        "pages/api/*"
+      ],
+      "@models/*": [
+        "db/models/*"
+      ],
+      "@db/*": [
+        "db/*"
+      ],
+      "@controllers/*": [
+        "db/controllers/*"
+      ],
+      "@providers/*": [
+        "lib/providers/*"
+      ],
+      "@types/*": [
+        "lib/types/*"
+      ],
+      "@styles/*": [
+        "lib/styles/*"
+      ],
+      "@hooks/*": [
+        "lib/hooks/*"
+      ],
+      "@layouts/*": [
+        "lib/layouts/*"
+      ],
+      "@components/*": [
+        "lib/components/*"
+      ]
+    },
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": false,
+    "strictNullChecks": true,
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "preserve",
+    "incremental": true
+  },
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx"
+  ],
+  "exclude": [
+    "node_modules"
+  ],
+  "types": [
+    "lib/types"
+  ],
+  "ts-node": {
+    "require": [
+      "tsconfig-paths/register"
+    ],
+    "transpileOnly": true,
+    "compilerOptions": {
+      "module": "commonjs"
+    }
+  }
+}

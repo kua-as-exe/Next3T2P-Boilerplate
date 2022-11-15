@@ -1,0 +1,28 @@
+version: '3'
+
+volumes:
+  node_modules: {}
+  dot_next: {}
+
+services:
+  app:
+    container_name: test-dev
+    build:
+      context: .
+      network: host
+      args:
+        - NODE_ENV=${NODE_ENV:-development}
+
+    environment:
+      DB_URL: ${DB_URL:-file:./database.sqlite}
+      NODE_ENV: ${NODE_ENV:-development}
+
+    volumes:
+      - node_modules:/app/node_modules
+      - dot_next:/app/.next
+      - ./db:/app/db
+      - ./pages:/app/pages
+      - ./lib:/app/lib
+      - ./public:/app/public
+      - ./server:/app/server
+
