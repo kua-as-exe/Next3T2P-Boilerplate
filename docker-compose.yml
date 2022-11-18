@@ -16,6 +16,8 @@ services:
     environment:
       DB_URL: ${DB_URL:-file:./database.sqlite}
       NODE_ENV: ${NODE_ENV:-development}
+      NEXTAUTH_URL: https://t3-dev-test.mayka.top/
+      NEXTAUTH_SECRET: PBESb4KvCmd38nUaa8IOxtqwV9/kdLHSd1hlFKhQKiQ=
 
     volumes:
       - node_modules:/app/node_modules

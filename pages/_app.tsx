@@ -9,19 +9,23 @@ import { Provider as JotaiProvider } from 'jotai'
 import NextSeoDefault from 'lib/utils/seo';
 
 import '@styles/globals.scss'
+import NextAuthProvider from '@providers/NextAuth';
 
 const App = ({ Component, pageProps }: AppProps) => {
 
   return (
     <>
       <DefaultSeo {...NextSeoDefault} />
-      <EmotionProvider>
-        <JotaiProvider>
-          <TrpcProvider>
-            <Component {...pageProps} />
-          </TrpcProvider>
-        </JotaiProvider>
-      </EmotionProvider>
+
+      <NextAuthProvider session={ ( pageProps as any )?.session ?? null }>
+        <EmotionProvider>
+          <JotaiProvider>
+            <TrpcProvider>
+              <Component {...pageProps} />
+            </TrpcProvider>
+          </JotaiProvider>
+        </EmotionProvider>
+      </NextAuthProvider>
     </>
   )
 
